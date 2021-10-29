@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QuizWebAPI.Models
 {
-  public class QuestionChoices
+  public class Choices
   {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int choice_id { get; set; }
+    public int id { get; set; }
 
     [Required]
     [Column(TypeName = "int")]

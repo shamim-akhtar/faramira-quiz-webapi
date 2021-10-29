@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QuizWebAPI.Models
 {
-  public class UserQuestionAnswers
+  public class Attempts
   {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

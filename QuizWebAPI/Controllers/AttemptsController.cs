@@ -11,27 +11,27 @@ namespace QuizWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserQuestionAnswersController : ControllerBase
+    public class AttemptsController : ControllerBase
     {
         private readonly QuizContext _context;
 
-        public UserQuestionAnswersController(QuizContext context)
+        public AttemptsController(QuizContext context)
         {
             _context = context;
         }
 
-        // GET: api/UserQuestionAnswers
+        // GET: api/Attempts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserQuestionAnswers>>> GetUserQuestionAnswers()
+        public async Task<ActionResult<IEnumerable<Attempts>>> GetUserQuestionAnswers()
         {
-            return await _context.UserQuestionAnswers.ToListAsync();
+            return await _context.Attempts.ToListAsync();
         }
 
-        // GET: api/UserQuestionAnswers/5
+        // GET: api/Attempts/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserQuestionAnswers>> GetUserQuestionAnswers(int id)
+        public async Task<ActionResult<Attempts>> GetUserQuestionAnswers(int id)
         {
-            var userQuestionAnswers = await _context.UserQuestionAnswers.FindAsync(id);
+            var userQuestionAnswers = await _context.Attempts.FindAsync(id);
 
             if (userQuestionAnswers == null)
             {
@@ -41,11 +41,11 @@ namespace QuizWebAPI.Controllers
             return userQuestionAnswers;
         }
 
-        // PUT: api/UserQuestionAnswers/5
+        // PUT: api/Attempts/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUserQuestionAnswers(int id, UserQuestionAnswers userQuestionAnswers)
+        public async Task<IActionResult> PutUserQuestionAnswers(int id, Attempts userQuestionAnswers)
         {
             if (id != userQuestionAnswers.id)
             {
@@ -73,29 +73,29 @@ namespace QuizWebAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/UserQuestionAnswers
+        // POST: api/Attempts
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<UserQuestionAnswers>> PostUserQuestionAnswers(UserQuestionAnswers userQuestionAnswers)
+        public async Task<ActionResult<Attempts>> PostUserQuestionAnswers(Attempts userQuestionAnswers)
         {
-            _context.UserQuestionAnswers.Add(userQuestionAnswers);
+            _context.Attempts.Add(userQuestionAnswers);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUserQuestionAnswers", new { id = userQuestionAnswers.id }, userQuestionAnswers);
         }
 
-        // DELETE: api/UserQuestionAnswers/5
+        // DELETE: api/Attempts/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<UserQuestionAnswers>> DeleteUserQuestionAnswers(int id)
+        public async Task<ActionResult<Attempts>> DeleteUserQuestionAnswers(int id)
         {
-            var userQuestionAnswers = await _context.UserQuestionAnswers.FindAsync(id);
+            var userQuestionAnswers = await _context.Attempts.FindAsync(id);
             if (userQuestionAnswers == null)
             {
                 return NotFound();
             }
 
-            _context.UserQuestionAnswers.Remove(userQuestionAnswers);
+            _context.Attempts.Remove(userQuestionAnswers);
             await _context.SaveChangesAsync();
 
             return userQuestionAnswers;
@@ -103,7 +103,7 @@ namespace QuizWebAPI.Controllers
 
         private bool UserQuestionAnswersExists(int id)
         {
-            return _context.UserQuestionAnswers.Any(e => e.id == id);
+            return _context.Attempts.Any(e => e.id == id);
         }
     }
 }
