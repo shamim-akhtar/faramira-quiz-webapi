@@ -15,7 +15,7 @@ namespace QuizWebAPI.Models
     }
     public DbSet<User> Users { get; set; }
     public DbSet<Question> Questions { get; set; }
-    public DbSet<QuizWebAPI.Models.QuestionChoices> QuestionChoices { get; set; }
-    public DbSet<QuizWebAPI.Models.UserQuestionAnswers> UserQuestionAnswers { get; set; }
+    public DbSet<Choices> Choices { get; set; }
+    public DbSet<Attempts> Attempts { get; set; }
   }
 }
