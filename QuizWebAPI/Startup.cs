@@ -30,7 +30,7 @@ namespace QuizWebAPI
     {
       //services.AddControllers();
 
-      services.AddDbContextPool<UserContext>(
+      services.AddDbContextPool<QuizContext>(
           options => 
             options.UseMySql(Configuration.GetConnectionString("DBConn"), 
             new MySqlServerVersion(new Version(8, 0, 11))
